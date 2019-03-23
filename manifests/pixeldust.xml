@@ -2,13 +2,15 @@
 <manifest>
 
   <remote name="pdp"
-           fetch="https://github.com/pixeldustproject-p"
+           fetch="https://github.com/pixeldustproject-caf"
            revision="refs/heads/p" />
 
   <remote name="gh"
            fetch="https://github.com/" />
 
-  <!-- PixelDust repos -->
+  <!-- General repos -->
+  <project path="art" name="android_art" remote="pdp" />
+  <project path="bionic" name="android_bionic" remote="pdp" />
   <project path="build/make" name="android_build_make" groups="pdk" remote="pdp" >
     <copyfile src="core/root.mk" dest="Makefile" />
     <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
@@ -25,16 +27,23 @@
     <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
   </project>
 
-  <project path="art" name="android_art" remote="pdp" />
-  <project path="bionic" name="android_bionic" remote="pdp" />
   <project path="bootable/recovery" name="android_bootable_recovery" remote="pdp" />
+  <project path="vendor/pixeldust" name="android_vendor_pixeldust" remote="pdp" />
+  <project path="vendor/support" name="android_vendor_support" remote="pdp" />
+
+ <!-- CodeAurora additions -->
+  <project path="device/qcom/sepolicy" name="android_device_qcom_sepolicy" remote="pdp" />
+  <project path="device/qcom/sepolicy-legacy" name="android_device_qcom_sepolicy-legacy" remote="pdp" />
+
+  <!-- External repos -->
   <project path="external/arm-optimized-routines" name="android_external_arm-optimized-routines" remote="pdp" />
   <project path="external/libjpeg-turbo" name="android_external_libjpeg-turbo" remote="pdp" />
   <project path="external/libpng" name="android_external_libpng" remote="pdp" />
   <project path="external/google" name="android_external_google" remote="pdp" />
   <project path="external/perfetto" name="android_external_perfetto" remote="pdp" />
-  <project path="external/selinux" name="android_external_selinux" remote="pdp" />
   <project path="external/skia" name="android_external_skia" remote="pdp" />
+
+  <!-- Framework repos -->
   <project path="frameworks/av" name="android_frameworks_av" remote="pdp" />
   <project path="frameworks/base" name="android_frameworks_base" remote="pdp" />
   <project path="frameworks/compile/mclinker" name="android_frameworks_compile_mclinker" remote="pdp" />
@@ -43,23 +52,19 @@
   <project path="frameworks/opt/telephony" name="android_frameworks_opt_telephony" remote="pdp" />
   <project path="frameworks/opt/net/wifi" name="android_frameworks_opt_net_wifi" remote="pdp" />
   <project path="frameworks/pixeldust" name="android_frameworks_pixeldust" remote="pdp" />
-  <project path="hardware/custom/interfaces" name="android_hardware_custom_interfaces" remote="pdp" />
+
+  <!-- Hardware repos -->
   <project path="hardware/interfaces" name="android_hardware_interfaces" remote="pdp" />
-  <project path="hardware/libhardware" name="android_hardware_libhardware" remote="pdp" />
-  <project path="hardware/libhardware_legacy" name="android_hardware_libhardware_legacy" remote="pdp" />
-  <project path="hardware/qcom/audio" name="android_hardware_qcom_audio" remote="pdp" />
-  <project path="hardware/qcom/bt" name="android_hardware_qcom_bt" remote="pdp" />
-  <project path="hardware/qcom/bootctrl" name="android_hardware_qcom_bootctrl" remote="pdp" />
-  <project path="hardware/qcom/camera" name="android_hardware_qcom_camera" remote="pdp" />
-  <project path="hardware/qcom/display" name="android_hardware_qcom_display" remote="pdp" />
-  <project path="hardware/qcom/gps" name="android_hardware_qcom_gps" remote="pdp" />
-  <project path="hardware/qcom/keymaster" name="android_hardware_qcom_keymaster" remote="pdp" />
-  <project path="hardware/qcom/media" name="android_hardware_qcom_media" remote="pdp" />
-  <project path="hardware/qcom/sdm845/display" name="android_hardware_qcom_sdm845_display" remote="pdp" />
-  <project path="hardware/qcom/wlan" name="android_hardware_qcom_wlan" remote="pdp" />
+  <project path="hardware/qcom/power" name="android_hardware_qcom_power" remote="pdp" />
+  <project path="hardware/pixeldust/interfaces" name="android_hardware_pixeldust_interfaces" remote="pdp" />
+
+  <!-- Packages repos -->
   <project path="packages/apps/Bluetooth" name="android_packages_apps_Bluetooth" remote="pdp" />
   <project path="packages/apps/Browser" name="android_packages_apps_Browser" remote="pdp" />
+  <project path="packages/apps/Camera2" name="android_packages_apps_Camera2" remote="pdp" />
   <project path="packages/apps/CustomDoze" name="android_packages_apps_CustomDoze" remote="pdp" />
+  <project path="packages/apps/DocumentsUI" name="android_packages_apps_DocumentsUI" remote="pdp" />
+  <project path="packages/apps/FMRadio" name="android_packages_apps_FMRadio" remote="pdp" />
   <project path="packages/apps/Launcher3" name="android_packages_apps_Launcher3" remote="pdp" />
   <project path="packages/apps/Nfc" name="android_packages_apps_Nfc" remote="pdp" />
   <project path="packages/apps/PixelDustOTA" name="android_packages_apps_PixelDustOTA" remote="pdp" />
@@ -67,18 +72,18 @@
   <project path="packages/apps/PixelDustWallpapers" name="android_packages_apps_PixelDustWallpapers" remote="pdp" />
   <project path="packages/apps/SmartNav" name="android_packages_apps_SmartNav" remote="pdp" />
   <project path="packages/apps/Settings" name="android_packages_apps_Settings" remote="pdp" />
+  <project path="packages/apps/SettingsIntelligence" name="android_packages_apps_SettingsIntelligence" remote="pdp" />
   <project path="packages/apps/WeatherClient" name="android_packages_apps_WeatherClient" remote="pdp" />
   <project path="packages/inputmethods/LatinIME" name="android_packages_inputmethods_LatinIME" remote="pdp" />
   <project path="packages/providers/DownloadProvider" name="android_packages_providers_DownloadProvider" remote="pdp" />
   <project path="packages/providers/MediaProvider" name="android_packages_providers_MediaProvider" remote="pdp" />
   <project path="packages/services/Telecomm" name="android_packages_services_Telecomm" remote="pdp" />
   <project path="packages/services/Telephony" name="android_packages_services_Telephony" remote="pdp" />
+
+  <!-- System Repos -->
   <project path="system/core" name="android_system_core" remote="pdp" />
   <project path="system/netd" name="android_system_netd" remote="pdp" />
   <project path="system/vold" name="android_system_vold" remote="pdp" />
   <project path="system/sepolicy" name="android_system_sepolicy" remote="pdp" />
-  <project path="vendor/codeaurora/telephony" name="android_vendor_codeaurora_telephony" remote="pdp" />
-  <project path="vendor/pixeldust" name="android_vendor_pixeldust" remote="pdp" />
-  <project path="vendor/support" name="android_vendor_support" remote="pdp" />
 
 </manifest>
